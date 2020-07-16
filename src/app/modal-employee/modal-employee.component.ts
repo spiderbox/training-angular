@@ -37,7 +37,7 @@ export class ModalEmployeeComponent {
     this.modalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
   }
 
-  onSubmit(): void { 
+  onSubmit(): void {
     this.employeeService.getEmployee().subscribe(val => this.employees = val);
     
     this.employeeService.addEmployeee(this.employeeForm.value).subscribe((res: any) => {

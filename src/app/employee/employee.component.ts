@@ -17,6 +17,7 @@ export class EmployeeComponent implements OnInit {
   id: number
   name: string
   index: number
+  employee: Employee
 
   constructor(
     private employeeService: EmployeeService, 
@@ -31,11 +32,16 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.getEmployees().subscribe(employee => this.employees = employee)
   }
 
-  open(content: object, employee: Employee, index: number): void {
-    this.modal.open(content)
+  openModalDelete(content: object, employee: Employee, index: number): void {
     this.id = employee.id
     this.name = employee.name
     this.index = index
+    this.modal.open(content)
+  }
+
+  openModalEdit(content: object, employee: Employee): void {
+    this.employee = employee
+    this.modal.open(content)
   }
 
 }

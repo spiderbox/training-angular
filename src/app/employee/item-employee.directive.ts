@@ -10,8 +10,6 @@ export class ItemEmployeeDirective implements OnInit {
     
   }
 
-  ngOnInit(): void {
-    console.log("------", this.id)
-  }
+  ngOnInit(): void {}
 
 }

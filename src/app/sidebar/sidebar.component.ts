@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginService.getFlagLogin().subscribe((data) => this.isLogin = data)
+    console.log(this.isLogin)
   }
 
 }

@@ -37,12 +37,14 @@ export class EmployeeService {
       )
   }
 
-  getEmployee(): Observable<Employee[]>{
-    return this.employees.asObservable();
-  }
-
-  setEmployee(employee: Employee[]): void {
-    this.employees.next(employee)
+  editEmployeee(id: number, employee: Employee): Observable<Object>{
+    return this.http.put<Employee>(GET_EMPLOYEES_URL + '/' + id, employee)
+      .pipe(
+        tap((response: object) => {
+          console.log(`edit completed`, response)
+        }),
+        catchError(this.handleError<Employee>(`fail`))
+      )
   }
 
   deleteEmployee(id: any): Observable<Object> {
@@ -54,6 +56,14 @@ export class EmployeeService {
         catchError(this.handleError<Employee>(`fail`))
       )
     return;
+  }
+
+  getEmployee(): Observable<Employee[]>{
+    return this.employees.asObservable();
+  }
+
+  setEmployee(employee: Employee[]): void {
+    this.employees.next(employee)
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

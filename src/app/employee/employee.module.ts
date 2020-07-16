@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDeleteEmployeeComponent } from './modal-delete-employee/modal-delete-employee.component';
 import { ItemEmployeeDirective } from './item-employee.directive';
+import { ModalEditEmployeeComponent } from './modal-edit-employee/modal-edit-employee.component';
 
 
 
@@ -15,7 +16,7 @@ import { ItemEmployeeDirective } from './item-employee.directive';
   declarations: [
     EmployeeComponent, 
     ModalEmployeeComponent, 
-    ModalDeleteEmployeeComponent, ItemEmployeeDirective
+    ModalDeleteEmployeeComponent, ItemEmployeeDirective, ModalEditEmployeeComponent
   ],
   imports: [
     CommonModule,
