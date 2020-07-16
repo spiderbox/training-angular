@@ -1,0 +1,15 @@
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Confirmation</h4>
+    <button type="button" class="close" (click)="modal.dismissAll()" aria-describedby="modal-title">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Are you sure you want to delete <span class="text-primary">"{{this.name}}"</span> </strong>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismissAll()">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="confirmDeleteEmployee()" >Ok</button>
+  </div>

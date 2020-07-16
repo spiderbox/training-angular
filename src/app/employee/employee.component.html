@@ -1,0 +1,31 @@
+<div class="container">
+    <app-modal-employee></app-modal-employee>
+    <ng-template #modaldelete>
+        <app-modal-delete-employee id="{{id}}" name="{{name}}" index="{{index}}"></app-modal-delete-employee>
+    </ng-template>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees; let i = index">
+                <td>{{employee.name}}</td>
+                <td>{{employee.dob | date:'yyyy-MM-dd'}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.email}}</td>
+                <td appItemEmployee id="{{employee.id}}">
+                    <button class="btn btn-outline-primary" (click)="open(modaldelete, employee, i)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+  
