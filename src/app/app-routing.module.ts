@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginAuth } from './login-auth'
 
 const routes: Routes = [
   {
@@ -8,15 +9,18 @@ const routes: Routes = [
   },
   {
     path: 'employee',
-    loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
+    loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule),
+    canActivate: [LoginAuth]
   },
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
-  }
+  },
+  { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LoginAuth]
 })
 export class AppRoutingModule { }
