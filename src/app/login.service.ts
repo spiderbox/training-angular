@@ -20,7 +20,17 @@ export class LoginService {
 
   login(data: object): Observable<Object>{
     return this.http.post<Object>(LOGIN_URL, data).pipe(
-      tap((response: object) => {})
+      tap({
+        next: val => {
+          console.log('on next', val);
+        },
+        error: error => {
+          console.log('on error', error);
+        },
+        complete: () => {
+          console.log('on complete')
+        }
+      })
     )
   }
 

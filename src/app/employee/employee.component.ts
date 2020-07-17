@@ -29,7 +29,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(employee => this.employees = employee)
+    this.employeeService.getEmployees().subscribe(employee => {console.log(employee.data); this.employees = employee.data})
   }
 
   openModalDelete(content: object, employee: Employee, index: number): void {

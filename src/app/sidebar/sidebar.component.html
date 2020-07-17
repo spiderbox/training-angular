@@ -2,16 +2,16 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a routerLink="/home" class="nav-link" >Home</a>
+          <a routerLink="{{route.HOME}}" class="nav-link" >Home</a>
         </li>
         <li *ngIf="isLogin" class="nav-item">
-          <a routerLink="/employee" class="nav-link" href="#">Employee</a>
+          <a routerLink="{{route.EMPLOYEE}}" class="nav-link">Employee</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/about" class="nav-link" href="#">About</a>
+          <a routerLink="{{route.ABOUT}}" class="nav-link">About</a>
         </li>
         <li *ngIf="isLogin" class="nav-item">
-          <a routerLink="/employee" class="nav-link" href="#">Logout</a>
+          <a class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>
