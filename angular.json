@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "init-angular": {
+    "training-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/init-angular",
+            "outputPath": "dist/training-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -62,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "init-angular:build"
+            "browserTarget": "training-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "init-angular:build:production"
+              "browserTarget": "training-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "init-angular:build"
+            "browserTarget": "training-angular:build"
           }
         },
         "test": {
@@ -110,15 +111,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "init-angular:serve"
+            "devServerTarget": "training-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "init-angular:serve:production"
+              "devServerTarget": "training-angular:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "init-angular"
+    }
+  },
+  "defaultProject": "training-angular",
+  "cli": {
+    "analytics": "d9a29df0-2ee4-4309-83e3-2a87bbfaa7d5"
+  }
 }
