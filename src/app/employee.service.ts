@@ -16,12 +16,12 @@ export class EmployeeService {
     this.employees = new BehaviorSubject<Employee[]>([])
   }
 
-  getEmployees(): Observable<Employee[]>{
+  getEmployees(): Observable<any>{
     return this.http.get<Employee[]>(GET_EMPLOYEES_URL)
       .pipe(
-        tap((response: Employee[]) => {
+        tap((response: any) => {
           console.log('getEmployees', response)
-          this.employees.next(response)
+          this.employees.next(response.data)
         }),
         catchError(this.handleError<Employee[]>(`fail`))
       )
