@@ -16,8 +16,24 @@ export class EmployeeService {
     this.employees = new BehaviorSubject<Employee[]>([])
   }
 
-  getEmployees(): Observable<any>{
-    return this.http.get<Employee[]>(GET_EMPLOYEES_URL)
+  getEmployees(page: any = '1', search?: string): Observable<any>{
+
+    let paramsSearch = {
+      page: page
+    }
+
+    if (search) {
+      paramsSearch = {
+        ...paramsSearch,
+        ...{
+          search: search
+        }
+      }
+    }
+    console.log(paramsSearch);
+    return this.http.get<Employee[]>(GET_EMPLOYEES_URL, {
+      params: paramsSearch
+    })
       .pipe(
         tap((response: any) => {
           console.log('getEmployees', response)

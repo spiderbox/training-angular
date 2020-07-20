@@ -17,15 +17,20 @@ export class SidebarComponent implements OnInit {
     private router: Router
   ) {
     
-   }
+  }
 
   ngOnInit(): void {
-    this.loginService.getFlagLogin().subscribe((data) => this.isLogin = data)
+    this.loginService.getFlagLoginObs().subscribe((data) => this.isLogin = data)
+
+    // get flagLogin in localStorage
+    let isLoginLocalStorage = this.loginService.getFlagLogin();
+    this.isLogin = isLoginLocalStorage ? isLoginLocalStorage : this.isLogin
     console.log("SideBar::ngOnInit")
      
   }
 
   logout(): void {
+    localStorage.removeItem('isLogin')
     this.loginService.setFlagLogin(false)
     this.router.navigate([ROUTE.HOME]) 
   }

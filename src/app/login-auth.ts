@@ -6,13 +6,11 @@ import { LoginService } from './login.service'
 
 export class LoginAuth implements CanActivate {
 
-    isLogin: any
     constructor(private loginService: LoginService) {
 
     }
 
     canActivate() {
-        this.loginService.getFlagLogin().subscribe((data) => this.isLogin = data)
-        return this.isLogin
+        return this.loginService.getFlagLogin()
     }
 }

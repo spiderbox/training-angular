@@ -11,8 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalEmployeeComponent } from './modal-employee/modal-employee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

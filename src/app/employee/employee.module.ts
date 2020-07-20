@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDeleteEmployeeComponent } from './modal-delete-employee/modal-delete-employee.component';
 import { ItemEmployeeDirective } from './item-employee.directive';
 import { ModalEditEmployeeComponent } from './modal-edit-employee/modal-edit-employee.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+import { FormatDatePipe } from '../format-date.pipe';
 
 
 
@@ -16,7 +18,11 @@ import { ModalEditEmployeeComponent } from './modal-edit-employee/modal-edit-emp
   declarations: [
     EmployeeComponent, 
     ModalEmployeeComponent, 
-    ModalDeleteEmployeeComponent, ItemEmployeeDirective, ModalEditEmployeeComponent
+    ModalDeleteEmployeeComponent, 
+    ItemEmployeeDirective,
+    ModalEditEmployeeComponent,
+    PaginationComponent,
+    FormatDatePipe
   ],
   imports: [
     CommonModule,
@@ -24,7 +30,7 @@ import { ModalEditEmployeeComponent } from './modal-edit-employee/modal-edit-emp
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    HttpClientModule,
+    HttpClientModule
   ]
 })
 export class EmployeeModule { }

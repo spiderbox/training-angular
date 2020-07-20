@@ -34,11 +34,17 @@ export class LoginService {
     )
   }
 
-  getFlagLogin(): Observable<Boolean> {
+  getFlagLoginObs(): Observable<Boolean> {
     return this.isLogin.asObservable();
   }
 
-  setFlagLogin(status: Boolean): void {
+  getFlagLogin(): any {
+    let isLogin = localStorage.getItem('isLogin')
+    return typeof isLogin == 'string' ? JSON.parse(isLogin) : isLogin;
+  }
+
+  setFlagLogin(status: any): void {
+    localStorage.setItem('isLogin', status)
     this.isLogin.next(status)
   }
 }

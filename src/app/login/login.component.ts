@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginForm.value).subscribe((res: any) => {
       if (res.status == 200) {
         this.loginService.setFlagLogin(true);
-        this.router.navigate([ROUTE.EMPLOYEE]) 
+        this.router.navigate([ROUTE.EMPLOYEE])
       } else {
         this.showError = true
       }

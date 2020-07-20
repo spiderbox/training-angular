@@ -7,6 +7,10 @@
         <app-modal-edit-employee [employee]="employee"></app-modal-edit-employee>
     </ng-template>
     
+    <div class="col-lg-4 offset-lg-8 mb-3">
+        <input #txtSearch type="text" class="form-control" placeholder="Search..." (keyup.enter)="search(txtSearch.value)">
+    </div>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -24,7 +28,7 @@
                     'color': '#3CA4FF',
                     'cursor': 'pointer'
                 }" (click)="openModalEdit(modalEdit, employee)">{{employee.name}}</a></td>
-                <td>{{employee.dob | date:'yyyy-MM-dd'}}</td>
+                <td>{{employee.dob | formatAge }}</td>
                 <td>{{employee.phone}}</td>
                 <td>{{employee.email}}</td>
                 <td appItemEmployee id="{{employee.id}}">
@@ -35,5 +39,9 @@
             </tr>
         </tbody>
       </table>
+
+      <!-- child component callback function in parent component-->
+      <app-pagination totalSize="{{totalRows}}" (onChange)="onChangeParent($event)" ></app-pagination>
+
   </div>
   
