@@ -24,7 +24,7 @@
                 Password
             </label>
             <div class="input-group">
-                <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && formEmployee.password.errors }" />
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formEmployee.password.errors }" />
                 <div *ngIf="formEmployee.password.errors" class="invalid-feedback">
                     <div *ngIf="formEmployee.password.errors.required">Password is required</div>
                 </div>
@@ -35,7 +35,7 @@
                 Re-type Password
             </label>
             <div class="input-group">
-                <input type="password" formControlName="retype_password" [ngClass]="{ 'is-invalid': submitted && formEmployee.retype_password.errors }" />
+                <input type="password" formControlName="retype_password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formEmployee.retype_password.errors }" />
                 <div *ngIf="submitted && formEmployee.retype_password.errors" class="invalid-feedback">
                     <div *ngIf="formEmployee.retype_password.errors.required">Password is required</div>
                     <div *ngIf="formEmployee.retype_password.errors.mustMatch">Passwords must match</div>
@@ -47,7 +47,7 @@
                 Phone
             </label>
             <div class="input-group">
-                <input type="text" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && formEmployee.phone.errors }" />
+                <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && formEmployee.phone.errors }" />
                 <div *ngIf="submitted && formEmployee.phone.errors" class="invalid-feedback">
                     <div *ngIf="formEmployee.phone.errors.required">Phone is required</div>
                 </div>
@@ -58,9 +58,10 @@
                 Email
             </label>
             <div class="input-group">
-                <input type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && formEmployee.email.errors }" />
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && formEmployee.email.errors }" />
                 <div *ngIf="submitted && formEmployee.email.errors" class="invalid-feedback">
                     <div *ngIf="formEmployee.email.errors.required">Email is required</div>
+                    <div *ngIf="formEmployee.email.errors.email">Email not valid</div>
                 </div>
             </div>
         </div>
@@ -69,7 +70,7 @@
                 Dob
             </label>
             <div class="input-group">
-                <input type="datetime-local" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && formEmployee.dob.errors }" />
+                <input type="datetime-local" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && formEmployee.dob.errors }" />
                 <div *ngIf="submitted && formEmployee.dob.errors" class="invalid-feedback">
                     <div *ngIf="formEmployee.dob.errors.required">DOB is required</div>
                 </div>

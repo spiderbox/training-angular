@@ -13,12 +13,32 @@ import {MustMatch} from '../_helpers/must-match.validator'
 export class ModalEmployeeComponent {
 
   employeeForm = this.formBuilder.group({
-    name: ['', [Validators.required]],
-    password: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    dob: ['', [Validators.required]],
-    phone: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-    retype_password: ['', [Validators.required]]
+    name: ['', [
+        Validators.required
+      ]
+    ],
+    password: ['', [
+        Validators.required
+      ]
+    ],
+    email: ['', [
+        Validators.required, 
+        Validators.email
+      ]
+    ],
+    dob: ['', [
+        Validators.required
+      ]
+    ],
+    phone: ['', [
+        Validators.required, 
+        Validators.pattern("^[0-9]*$")
+      ]
+    ],
+    retype_password: ['', [
+        Validators.required
+      ]
+    ]
   }, {
     validators: MustMatch('password', 'retype_password')
   })
@@ -42,7 +62,7 @@ export class ModalEmployeeComponent {
   }
 
   onSubmit(): void {
-  this.submitted = true
+    this.submitted = true
     if (this.employeeForm.invalid) {
       return;
     }
@@ -50,7 +70,7 @@ export class ModalEmployeeComponent {
     this.employeeService.getEmployee().subscribe(val => this.employees = val);
     
     this.employeeService.addEmployeee(this.employeeForm.value).subscribe((res: any) => {
-      this.employees.push(res.data)
+      this.employees.unshift(res.data)
       this.employeeService.setEmployee(this.employees)
       this.modalRef.close()
     }, (error: any) => {

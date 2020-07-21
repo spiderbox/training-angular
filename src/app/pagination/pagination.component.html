@@ -1,7 +1,7 @@
 <div [ngClass]="'div_custom_pagination'">
 <ul [ngClass]="'custom_pagination'">
     <li *ngFor="let i of arrayPagination; index as a" (click)="onClick(a+1)">
-        <a>{{a+1}}</a>
+        <a [ngClass]="{'active' : page == a + 1}">{{a+1}}</a>
     </li>
 </ul>
 </div>

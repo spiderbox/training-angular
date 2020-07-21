@@ -12,10 +12,24 @@ import { EmployeeService } from 'src/app/employee.service';
 export class ModalEditEmployeeComponent implements OnInit {
 
   employeeForm = this.formBuilder.group({
-    name: '',
-    email: ['', [Validators.required]],
-    dob: ['', [Validators.required]],
-    phone: ['', [Validators.required]]
+    name: ['', [
+        Validators.required
+      ]
+    ],
+    email: ['', [
+        Validators.required, 
+        Validators.email
+      ]
+    ],
+    dob: ['', [
+        Validators.required
+      ]
+    ],
+    phone: ['', [
+        Validators.required, 
+        Validators.pattern("^[0-9]*$")
+      ]
+    ],
   })
 
   @Input() employee: Employee

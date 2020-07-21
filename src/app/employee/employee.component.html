@@ -41,7 +41,7 @@
       </table>
 
       <!-- child component callback function in parent component-->
-      <app-pagination totalSize="{{totalRows}}" (onChange)="onChangeParent($event)" ></app-pagination>
+      <app-pagination totalSize="{{totalRows}}" page="{{currentPage}}" (onChange)="onChangeParent($event)" ></app-pagination>
 
   </div>
   

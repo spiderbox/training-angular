@@ -14,9 +14,14 @@ const routes: Routes = [
     canActivate: [LoginAuth]
   },
   {
-    path: '', redirectTo: ROUTE.HOME, pathMatch: 'full'
+    path: '', 
+    redirectTo: ROUTE.HOME, 
+    pathMatch: 'full'
   },
-  { path: ROUTE.ABOUT, loadChildren: () => import('./about/about.module').then(m => m.AboutModule) }
+  { 
+    path: ROUTE.ABOUT, 
+    loadChildren: () => import('./about/about.module').then(m => m.AboutModule) 
+  }
 ];
 
 @NgModule({

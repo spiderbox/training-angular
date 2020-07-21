@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges, OnDestroy } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnInit, OnDestroy {
   // @ViewChild(ItemEmployeeDirective)
 
   employees: Employee[]
@@ -27,14 +27,19 @@ export class EmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.employeeService.getEmployee().subscribe(val => this.employees = val);
+    // this.employeeService.getEmployee().subscribe(val => this.employees = val);
+    console.log("EmployeeComponent::ngOnInit::listEmployee", this.employees)
     this.getEmployees();
+    console.log("EmployeeComponent::ngOnInit::listEmployee", this.employees)
+  }
+
+  ngOnDestroy() : void {
+    console.log("EmployeeComponent::ngOnDestroy()")
   }
 
   getEmployees(): void {
     this.employeeService.getEmployees().subscribe(
       employee => {
-        console.log(employee.total_rows)
         this.employees = employee.data
         this.totalRows = employee.total_rows
         this.currentPage = employee.page
@@ -64,12 +69,13 @@ export class EmployeeComponent implements OnInit {
     })
   }
 
-  onChangeParent(value: any){
+  onChangeParent(value: any) {
     console.log("EmployeeComponent::onChangeParent", value)
     this.employeeService.getEmployees(value).subscribe(
       employee => {
         this.employeeService.getEmployee().subscribe(val => this.employees = val);
         this.employeeService.setEmployee(employee.data)
+        this.currentPage = employee.page
     })
   }
 

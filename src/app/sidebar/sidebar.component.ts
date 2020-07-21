@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ROUTE } from '../config/constants'
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,7 +16,8 @@ export class SidebarComponent implements OnInit {
   route: any = ROUTE
   constructor(
     private loginService: LoginService, 
-    private router: Router
+    private router: Router,
+    private activetedRoute: ActivatedRoute
   ) {
     
   }
@@ -25,7 +28,6 @@ export class SidebarComponent implements OnInit {
     // get flagLogin in localStorage
     let isLoginLocalStorage = this.loginService.getFlagLogin();
     this.isLogin = isLoginLocalStorage ? isLoginLocalStorage : this.isLogin
-    console.log("SideBar::ngOnInit")
      
   }
 

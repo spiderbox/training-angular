@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a routerLink="{{route.HOME}}" class="nav-link" >Home</a>
+      <ul class="navbar-nav mr-auto training-nav-bar">
+        <li class="nav-item">
+          <a routerLink="{{route.HOME}}" [routerLinkActive]="['is-active']" class="nav-link" >Home</a>
         </li>
         <li *ngIf="isLogin" class="nav-item">
-          <a routerLink="{{route.EMPLOYEE}}" class="nav-link">Employee</a>
+          <a routerLink="{{route.EMPLOYEE}}" [routerLinkActive]="['is-active']" class="nav-link">Employee</a>
         </li>
         <li class="nav-item">
-          <a routerLink="{{route.ABOUT}}" class="nav-link">About</a>
+          <a routerLink="{{route.ABOUT}}" [routerLinkActive]="['is-active']" class="nav-link">About</a>
         </li>
         <li *ngIf="isLogin" class="nav-item">
           <a class="nav-link" (click)="logout()">Logout</a>
