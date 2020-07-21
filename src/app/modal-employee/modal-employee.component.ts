@@ -71,7 +71,7 @@ export class ModalEmployeeComponent {
     
     this.employeeService.addEmployeee(this.employeeForm.value).subscribe((res: any) => {
       this.employees.unshift(res.data)
-      this.employeeService.setEmployee(this.employees)
+      // this.employeeService.setEmployee(this.employees)
       this.modalRef.close()
     }, (error: any) => {
       console.log(error);
