@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalEmployeeComponent } from './modal-employee.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ModalEmployeeComponent', () => {
   let component: ModalEmployeeComponent;
@@ -8,7 +10,8 @@ describe('ModalEmployeeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalEmployeeComponent ]
+      declarations: [ ModalEmployeeComponent ],
+      imports: [ReactiveFormsModule, HttpClientModule]
     })
     .compileComponents();
   }));

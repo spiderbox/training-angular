@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginationComponent } from './pagination.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
@@ -8,7 +9,8 @@ describe('PaginationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaginationComponent ]
+      declarations: [ PaginationComponent ],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));
@@ -22,4 +24,11 @@ describe('PaginationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('test input pagination', () => {
+    let page = 1
+    let totalSize = 10
+    component.page = 1
+    expect(component.page).toEqual(page)
+  })
 });

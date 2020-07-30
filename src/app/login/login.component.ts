@@ -3,6 +3,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { ROUTE } from '../config/constants'
+import { BehaviorSubject, Subject } from 'rxjs'
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,8 @@ export class LoginComponent implements OnInit {
     password: ['2', [Validators.required]]
   })
 
+  subject = new BehaviorSubject(0)
+
   constructor(
     private formBuilder: FormBuilder, 
     private loginService: LoginService,
@@ -27,7 +30,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  onSubmit(): void { 
+  onSubmit(): void {
+    console.log("loginComponentOnSubmit")
     this.loginService.login(this.loginForm.value).subscribe((res: any) => {
       if (res.status == 200) {
         this.loginService.setFlagLogin(true);
@@ -35,6 +39,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.showError = true
       }
+
     }, (error: any) => {
       console.log(error);
     })
@@ -42,4 +47,8 @@ export class LoginComponent implements OnInit {
   closeAlert(): void {
     this.showError = false
   }
+
+  private getUsers(): void {
+    console.log("aaaa")
+}
 }

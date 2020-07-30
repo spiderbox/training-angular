@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginAuth } from './login-auth'
 import { ROUTE } from './config/constants'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -21,11 +22,15 @@ const routes: Routes = [
   { 
     path: ROUTE.ABOUT, 
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule) 
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule],
   providers: [LoginAuth]
 })

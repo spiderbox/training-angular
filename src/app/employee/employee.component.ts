@@ -22,7 +22,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   currentPage: number
 
   constructor(
-    private employeeService: EmployeeService, 
+    public employeeService: EmployeeService, 
     private modal: NgbModal
   ) { }
 
